@@ -10,8 +10,8 @@ Developed Using:
 Task Input:
 1. Give Task Name
 2. Task Start Date
-3. Start Time
-4. End Time
+3. Start Time (24 hour format)
+4. End Time (24 hour format)
 
 Guidelines:
 1. Newly Created task has status as "New"

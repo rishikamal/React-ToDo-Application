@@ -2,6 +2,8 @@
 A basic Kanban System for managing tasks based on their status and time allotment.
 Can create multiple tasks but Run only single task at a time.
 
+If you close the app, whenever you return simply press the Task's "Go" button to see timer running.
+
 Developed Using:
 1. Webpack
 2. React
@@ -29,4 +31,5 @@ New -> In Progress -> Ready For QA -> Closed.
 Future Enhancements:
 1. Improve code. (currently little long and simple code)
 2. Add separate timer for each task.
+3. Filter completed, ongoing or new tasks.
 

@@ -7,10 +7,7 @@ class Client extends React.Component{
 
 	render(){
 		return(
-			<div>
 			<h4 className="center-align card-panel teal lighten-2"> Welcome to ToDo Application</h4>
-			 
-			</div>
 			)
 	}
 }

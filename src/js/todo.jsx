@@ -50,7 +50,7 @@ class AddRow extends React.Component{
 		    	
 
 		 	return(
-		 		<tr>
+		 		<tr key={index}>
 		 			<td>
 				 		<p id={i.id} key={index} >{index + 1}: {i.task_name} </p>
 				 		<select className="form-control form-control-sm" id={i.id} defaultValue={i.status} onChange={newProps.onSelectValue} >
@@ -161,7 +161,6 @@ class ToDo extends React.Component{ 				// Main Component
 			window.addEventListener('beforeunload', this.componentRemoval);
 			if (localStorage['taskList']){
 				var update = JSON.parse(localStorage['taskList']);
-
 				var newupdate = update.map(function(task, index){
 					if(task.status == "in_progress"){
 						var et= task.endTime.split(":");
@@ -176,6 +175,7 @@ class ToDo extends React.Component{ 				// Main Component
 							task.startTime = "Task Time Over";
 							task.endTime = "Task Time Over"
 						}
+							
 					}
 				})
 				

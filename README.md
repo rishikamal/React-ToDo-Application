@@ -9,7 +9,7 @@ Developed Using:
 
 Task Input:
 1. Give Task Name
-2. Task Description
+2. Task Start Date
 3. Start Time
 4. End Time
 
@@ -20,6 +20,7 @@ Guidelines:
 4. Task can be ended after started. It ends automatically if end time reached. When stopped, status changes to "Ready For QA".
 5. End time cannot be less than start time and has to be +10 minutes of start time.
 6. Only a task with status "Ready for QA" can be changed to "Closed".
+7. A task can be created for the same date only.
 
 Task Status has strict flow:
 

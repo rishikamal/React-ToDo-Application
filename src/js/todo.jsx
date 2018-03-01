@@ -31,8 +31,8 @@ class AddRow extends React.Component{
 		    var tasklist = this.props.taskData.map(function(i,index){			// Create object of tasks 
 
 		    if(i.status== "in_progress"){
-		    	buttons= <input type="button" className="btn btn-secondary btn-sm" id={i.id} value="Stop" onClick={newProps.stopTimer} />
-		    	runTimer= <label id={i.id} > Timer: <strong>{newProps.time}</strong> </label>
+		    	buttons= <input style={{margin : "10px"}} type="button" className="btn btn-secondary btn-sm" id={i.id} value="Stop" onClick={newProps.stopTimer} />
+		    	runTimer= <p id={i.id} style={{marginLeft : "20px"}} > Timer: <strong>{newProps.time}</strong> </p>
 
 		    }
 
@@ -42,8 +42,8 @@ class AddRow extends React.Component{
 		    }
 
 		    else{
-		    	buttons = <div> <input type="button" className="btn btn-danger btn-sm" id={i.id} value="X" onClick={newProps.delTask}/>
-		 		<input type="button" className="btn btn-primary btn-sm" id={i.id} value="Edit" onClick={newProps.editTask}/>
+		    	buttons = <div> <input style={{margin : "10px"}} type="button" className="btn btn-danger btn-sm" id={i.id} value="X" onClick={newProps.delTask}/>
+		 		<input type="button" style={{margin : "10px"}} className="btn btn-primary btn-sm" id={i.id} value="Edit" onClick={newProps.editTask}/>
 		 		</div>
 		 		runTimer= ""
 		    }
@@ -60,11 +60,11 @@ class AddRow extends React.Component{
 				 			<option value= "closed">Closed</option>
 				 		</select>
 				 		<div className="col-sm" >
-					 		<input type="button"  className="btn btn-success btn-sm" id={i.id} value="Go" onClick={newProps.addStatus}  />	 				 		
+					 		<input type="button" style={{margin : "10px"}} className="btn btn-success btn-sm" id={i.id} value="Go" onClick={newProps.addStatus}  />	 				 		
 					 		{buttons}
 				 		</div>
 				 		<div className="form-group col-sm" >
-					 	<p>Date: {i.startDate} Time: {i.startTime} - {i.endTime}</p><br/>
+					 	<label style={{margin : "20px"}}>Date: {i.startDate} Time: {i.startTime} - {i.endTime}</label><br/>
 					 		{runTimer}
 					 	</div>
 				 	</td>
@@ -101,26 +101,25 @@ class InputTask extends React.Component{ 		//Input form for adding task
 
 		return(
 			<div className="container">
-				<div className="">
-					<form onSubmit={this.props.addToList} method="POST" className="form-control-sm">
+					<form onSubmit={this.props.addToList} method="POST" className="form-control-sm" style={{marginTop : "20px"}}>
 						<div className="form-group">
-							<label className="col-xs-2 control-label" >Task:</label>
+							<label className=" control-label" >Task:</label>
 							<input type="text" id="taskInput" value={this.props.val} onChange= {this.props.onSetVal}  required/>
 						</div>	
 						<div className="form-group">
-							<label className="inputDateTime col-xs-2 control-label" >Start Date:</label>
+							<label className="inputDateTime control-label" >Start Date:</label>
 							<input type="date" id="inputDate" name="startDate" min={dateformat(new Date(),"yyyy-mm-dd")} onChange={this.props.onChangeStartDate}  required />
 						</div>
 						<div className="form-group">
-							<label className="col-xs-2 control-label">Start Time:</label>
+							<label className=" control-label">Start Time:</label>
 							<input type="time" id="inputSTime"  name="startTime" min={dateformat(new Date(), "HH:MM")}  onChange={this.props.onChangeStartTime}  required />
 						</div>
 						<div className="form-group">
-							<label className="col-xs-2 control-label" >End Time:</label>
+							<label className=" control-label" >End Time:</label>
 							<input type="time" id="inputETime" name="endTime" min={dateformat(dt, "HH:MM")}  onChange={this.props.onChangeEndTime} required/>
 						</div>
 						<div className="form-group">
-							<label className="col-xs-2 control-label" ></label>
+							<label className="control-label" ></label>
 							<button type="submit" className="btn btn-primary btn-sm" id="add-to-list" value="Add to List" >Add to List</button> 
 						</div>
 						<div className="form-group">
@@ -128,7 +127,6 @@ class InputTask extends React.Component{ 		//Input form for adding task
 							<input type="button" className="btn btn-primary btn-sm" id="save-task" value="Save" onClick={this.props.setNewData} style={{display: 'none'}}/>
 						</div>
 					</form>
-				</div>
 			</div>
 			)
 	}
@@ -507,12 +505,12 @@ class ToDo extends React.Component{ 				// Main Component
 			<div className="container">
 				<div className="row m12">
 					<div className="col m6 ">
-						<div className="inputbox nav nav-pills nav-stacked affix col m4 card-panel hoverable teal lighten-4 z-depth-2" data-offset-top="205" data-spy="affix">
+						<div className="inputbox nav nav-pills nav-stacked affix col m4 card-panel hoverable teal lighten-5 z-depth-2" data-offset-top="205" data-spy="affix">
 							<InputTask val={this.state.taskVal} onSetVal={this.onSetVal} onChangeStartDate = {this.onChangeStartDate} onChangeStartTime={this.onChangeStartTime} onChangeEndTime={this.onChangeEndTime} addToList={this.addToList} setNewData={this.setNewData} />
 						</div>
 					</div>
 					
-					<div className="col m6 card-panel hoverable teal lighten-4 z-depth-2">
+					<div className="col m6 card-panel hoverable teal lighten-5 z-depth-2">
 						<AddRow taskData={this.state.taskList} time={this.state.time} stopTimer={this.stopTimer} addStatus={this.addStatus}  onSelectValue={this.selectedValue} delTask={this.deleteTask} editTask={this.onEditTask}  />	
 					</div>
 				</div>

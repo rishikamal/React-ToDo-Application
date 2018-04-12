@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, NavLink, Route, Link} from 'react-router-dom';
-import ToDo from './ToDo';
+import ToDo from './todo.jsx';
 
 class Client extends React.Component{
 
